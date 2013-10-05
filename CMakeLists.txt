@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 
 include_directories(srcglfw3/include)
 add_subdirectory(srcglfw3)
-set (EXTRA_LIBS ${EXTRA_LIBS} srcglfw3)
+set (EXTRA_LIBS ${EXTRA_LIBS} glfw3)
 
 
 add_executable(test maintest.c)
