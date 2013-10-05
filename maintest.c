@@ -13,6 +13,8 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 int main(void)
 {
     GLFWwindow* window;
+
+    fprintf(stderr, "DISPLAY=%s\n", getenv("DISPLAY"));
     glfwSetErrorCallback(error_callback);
     if (!glfwInit())
         exit(EXIT_FAILURE);
@@ -51,6 +53,7 @@ int main(void)
         glfwPollEvents();
         count++;
         if(count > 99) break;
+        fprintf(stderr, "COUNT=%ld\n", count);
     }
     glfwDestroyWindow(window);
     glfwTerminate();

@@ -5,6 +5,10 @@ compiler:
 before_install:
 # http://about.travis-ci.org/docs/user/build-configuration/
   - git submodule update --init --recursive
+  - git clone https://github.com/kaikuehne/mirror.git mirror
+# NOTE: In OSX use export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig after install the others via brew
+  # - sudo apt-get install libcairo2-dev fontconfig
+  - npm install -g imagediff
   # http://about.travis-ci.org/docs/user/build-configuration/#Installing-Packages-Using-apt
   - sudo apt-get update -qq
   # and as suggested here https://github.com/glfw/glfw/issues/2#issuecomment-16725712
@@ -31,3 +35,7 @@ script:
   - "export DISPLAY=:963.0"
   - "DISPLAY=:963.0 ./test"
   - find . -iname *.a
+  - mkdir img_out
+  - imagediff -d img_orig/1_normal_a.jpg img_new/1_normal_b.jpg img_out/salida.jpg
+  - imagediff -e img_orig/1_normal_a.jpg img_new/1_normal_b.jpg
+  - python ./mirror/mirror.py img_orig/1_normal_a.jpg img_new/1_normal_b.jpg 
