@@ -3,14 +3,14 @@ compiler:
   - gcc
 #  - clang
 before_install:
-	- sudo apt-get update -qq
+  - sudo apt-get update -qq
 #http://dri.freedesktop.org/wiki/Building/#index1h1
 #apt-get build-dep libdrm mesa
 #apt-get install linux-headers-`uname -r`
 #apt-get install libxi-dev libxmu-dev x11proto-xf86vidmode-dev
 #apt-get install git-core autoconf automake libtool
-	# http://about.travis-ci.org/docs/user/build-configuration/#Installing-Packages-Using-apt
-	- sudo apt-get install -qq x11proto-xf86vidmode-dev
+  # http://about.travis-ci.org/docs/user/build-configuration/#Installing-Packages-Using-apt
+  - sudo apt-get install -qq x11proto-xf86vidmode-dev
 # http://about.travis-ci.org/docs/user/build-configuration/
   - git submodule update --init --recursive
 # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
