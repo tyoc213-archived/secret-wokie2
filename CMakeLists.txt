@@ -3,10 +3,9 @@ cmake_minimum_required(VERSION 2.8)
 
 include_directories(srcglfw3/include)
 add_subdirectory(srcglfw3)
-#add_library(glfw3 srcglfw3)
-#set_property(TARGET glfw3 PROPERTY IMPORTED_LOCATION srcglfw3/src/libglfw3.a)
+add_library(glfw3 srcglfw3)
+set_property(TARGET glfw3 PROPERTY IMPORTED_LOCATION srcglfw3/src/libglfw3.a)
 
-find_library(glfw3 PATHS srcglfw3/src)
 
 add_executable(test maintest.c)
 add_dependencies(test glfw3)
