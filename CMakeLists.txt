@@ -10,7 +10,7 @@ set_property(TARGET glfw3 PROPERTY IMPORTED_LOCATION srcglfw3/src/libglfw3.a)
 add_executable(test maintest.c)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    target_link_libraries(test glfw3 ${X11_LIBRARY} GL GLU Xxf86vm GLUT)
+    target_link_libraries(test glfw3 ${X11_LIBRARY} GL GLU Xxf86vm Xrandr)
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
