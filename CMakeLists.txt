@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 2.8)
 
 
 include_directories(srcglfw3/include)
-add_subdirectory(srcglfw3)
-add_library(glfw3 srcglfw3)
-set_property(TARGET glfw3 PROPERTY IMPORTED_LOCATION srcglfw3/src/libglfw3.a)
+
+FIND_LIBRARY(GLFW3LIBRARY glfw3 /srcglfw3/src/libglfw3.a)
 
 
 add_executable(test maintest.c)
+TARGET_LINK_LIBRARIES(test ${GLFW3LIBRARY})
 add_dependencies(test glfw3)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
