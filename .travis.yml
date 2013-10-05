@@ -10,7 +10,8 @@ before_install:
 #apt-get install libxi-dev libxmu-dev x11proto-xf86vidmode-dev
 #apt-get install git-core autoconf automake libtool
   # http://about.travis-ci.org/docs/user/build-configuration/#Installing-Packages-Using-apt
-  - sudo apt-get install -qq x11proto-xf86vidmode-dev
+  # and as suggested here https://github.com/glfw/glfw/issues/2#issuecomment-16725712
+  - sudo apt-get install -qq x11proto-xf86vidmode-dev xorg-dev libglu1-mesa-dev
 # http://about.travis-ci.org/docs/user/build-configuration/
   - git submodule update --init --recursive
 # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
