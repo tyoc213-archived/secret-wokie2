@@ -22,9 +22,11 @@ before_install:
 before_script:
   - pwd
   - git status
-  - cmake .
-script:
   - find . -iname *.c
   - find . -iname *.a
+  - pwd
+  - cmake .
+script:
+  
   - make && ./test
   - find . -iname *.a
