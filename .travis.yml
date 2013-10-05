@@ -27,6 +27,7 @@ before_script:
   - pwd
   - cmake .
 script:
-  
-  - make && ./test
+  - make
+  - export DISPLAY=:99.0
+  - ./test
   - find . -iname *.a
