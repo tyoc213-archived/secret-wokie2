@@ -9,11 +9,9 @@ before_install:
   - git submodule update --init --recursive
   - git clone https://github.com/kaikuehne/mirror.git mirror
   - pwd
-  - cd mirror
-  - sudo apt-get install libjpeg libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev
-  # perhaps this also can work http://stackoverflow.com/a/14840374/682603 it is pillow? https://github.com/python-imaging/Pillow or something on the lines of http://askubuntu.com/questions/156484/how-do-i-install-python-imaging-library-pil?answertab=votes#tab-top
-  - sudo pip install -r requirements.txt
-  - cd ..
+  #- sudo apt-get install #install libjpeg libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev
+  # installing requeriments PIL with jpeg support failed replace it with pillow... perhaps this also can work http://stackoverflow.com/a/14840374/682603 it is pillow? https://github.com/python-imaging/Pillow or something on the lines of http://askubuntu.com/questions/156484/how-do-i-install-python-imaging-library-pil?answertab=votes#tab-top
+  - pip install pillow
 # NOTE: In OSX use export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig after install the others via brew
   # - sudo apt-get install libcairo2-dev fontconfig
   - npm install -g imagediff
