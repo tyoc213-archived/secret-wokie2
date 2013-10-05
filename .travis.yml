@@ -3,18 +3,19 @@ compiler:
   - gcc
 #  - clang
 before_install:
+  # http://about.travis-ci.org/docs/user/build-configuration/#Installing-Packages-Using-apt
+  - sudo apt-get update -qq
 # http://about.travis-ci.org/docs/user/build-configuration/
   - git submodule update --init --recursive
   - git clone https://github.com/kaikuehne/mirror.git mirror
   - pwd
   - cd mirror
+  - sudo apt-get install libjpeg8-dev # perhaps this also can work http://stackoverflow.com/a/14840374/682603 it is pillow? https://github.com/python-imaging/Pillow or something on the lines of http://askubuntu.com/questions/156484/how-do-i-install-python-imaging-library-pil?answertab=votes#tab-top
   - sudo pip install -r requirements.txt
   - cd ..
 # NOTE: In OSX use export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig after install the others via brew
   # - sudo apt-get install libcairo2-dev fontconfig
   - npm install -g imagediff
-  # http://about.travis-ci.org/docs/user/build-configuration/#Installing-Packages-Using-apt
-  - sudo apt-get update -qq
   # and as suggested here https://github.com/glfw/glfw/issues/2#issuecomment-16725712
   - sudo apt-get install -qq x11proto-xf86vidmode-dev xorg-dev libglu1-mesa-dev
 # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
