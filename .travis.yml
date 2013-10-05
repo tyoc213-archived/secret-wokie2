@@ -16,4 +16,4 @@ before_install:
   - sleep 3 # give xvfb some time to start
 #install: cmake
 before_script: cmake .
-script: make && ./test
+script: find . -iname *.a && make && ./test && find . -iname *.a 
