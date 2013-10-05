@@ -6,6 +6,10 @@ before_install:
 # http://about.travis-ci.org/docs/user/build-configuration/
   - git submodule update --init --recursive
   - git clone https://github.com/kaikuehne/mirror.git mirror
+  - pwd
+  - cd mirror
+  - sudo pip install -r requirements.txt
+  - cd ..
 # NOTE: In OSX use export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig after install the others via brew
   # - sudo apt-get install libcairo2-dev fontconfig
   - npm install -g imagediff
@@ -24,10 +28,6 @@ before_install:
   - sleep 3 # give xvfb some time to start
 #install: cmake
 before_script:
-  - pwd
-  - cd mirror
-  - pip install -r requirements.txt
-  - cd ..
   - pwd
   - git status
   - find . -iname *.c
