@@ -10,7 +10,8 @@ before_install:
   - git clone https://github.com/kaikuehne/mirror.git mirror
   - pwd
   - cd mirror
-  - sudo apt-get install libjpeg libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev# perhaps this also can work http://stackoverflow.com/a/14840374/682603 it is pillow? https://github.com/python-imaging/Pillow or something on the lines of http://askubuntu.com/questions/156484/how-do-i-install-python-imaging-library-pil?answertab=votes#tab-top
+  - sudo apt-get install libjpeg libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev
+  # perhaps this also can work http://stackoverflow.com/a/14840374/682603 it is pillow? https://github.com/python-imaging/Pillow or something on the lines of http://askubuntu.com/questions/156484/how-do-i-install-python-imaging-library-pil?answertab=votes#tab-top
   - sudo pip install -r requirements.txt
   - cd ..
 # NOTE: In OSX use export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig after install the others via brew
