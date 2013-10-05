@@ -25,6 +25,10 @@ before_install:
 #install: cmake
 before_script:
   - pwd
+  - cd mirror
+  - pip install -r requirements.txt
+  - cd ..
+  - pwd
   - git status
   - find . -iname *.c
   - find . -iname *.a
@@ -38,4 +42,4 @@ script:
   - mkdir img_out
   - imagediff -d img_orig/1_normal_a.jpg img_new/1_normal_b.jpg img_out/salida.jpg
   - imagediff -e img_orig/1_normal_a.jpg img_new/1_normal_b.jpg
-  - python ./mirror/mirror.py img_orig/1_normal_a.jpg img_new/1_normal_b.jpg 
+  - python mirror.py img_orig/1_normal_a.jpg img_new/1_normal_b.jpg 
