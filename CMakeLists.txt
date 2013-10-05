@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 2.8)
 
 
-
+add_subdirectory(srcglfw3)
 add_executable(test maintest.c)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    FIND_LIBRARY(X11_LIBRARY X11)
     target_link_libraries(test glfw3 ${X11_LIBRARY})
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
