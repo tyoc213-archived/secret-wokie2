@@ -10,13 +10,13 @@ before_install:
   # and as suggested here https://github.com/glfw/glfw/issues/2#issuecomment-16725712
   - sudo apt-get install -qq x11proto-xf86vidmode-dev xorg-dev libglu1-mesa-dev
 # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
-####  - "export DISPLAY=:99.0"
+####  - "export DISPLAY=:963.0"
 #### if size start manually not via init script  - "sh -e /etc/init.d/xvfb start"
   - cd srcglfw3
   - cmake .
   - make
   - cd ..
-  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 800x600x32"
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_963.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :963 -ac -screen 0 800x600x32"
   - sleep 3 # give xvfb some time to start
 #install: cmake
 before_script:
@@ -28,5 +28,6 @@ before_script:
   - cmake .
 script:
   - make
-  - "DISPLAY=:99.0 ./test"
+  - "export DISPLAY=:963.0"
+  - "DISPLAY=:963.0 ./test"
   - find . -iname *.a
