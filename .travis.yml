@@ -3,23 +3,17 @@ compiler:
   - gcc
 #  - clang
 before_install:
-  - git submodule update --init --recursive
-  - sudo apt-get update -qq
-#http://dri.freedesktop.org/wiki/Building/#index1h1
-#apt-get build-dep libdrm mesa
-#apt-get install linux-headers-`uname -r`
-#apt-get install libxi-dev libxmu-dev x11proto-xf86vidmode-dev
-#apt-get install git-core autoconf automake libtool
-  # http://about.travis-ci.org/docs/user/build-configuration/#Installing-Packages-Using-apt
-  # and as suggested here https://github.com/glfw/glfw/issues/2#issuecomment-16725712
-  - sudo apt-get install -qq x11proto-xf86vidmode-dev xorg-dev libglu1-mesa-dev
 # http://about.travis-ci.org/docs/user/build-configuration/
   - git submodule update --init --recursive
+  # http://about.travis-ci.org/docs/user/build-configuration/#Installing-Packages-Using-apt
+  - sudo apt-get update -qq
+  # and as suggested here https://github.com/glfw/glfw/issues/2#issuecomment-16725712
+  - sudo apt-get install -qq x11proto-xf86vidmode-dev xorg-dev libglu1-mesa-dev
 # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
-  - "export DISPLAY=:99.0"
+####  - "export DISPLAY=:99.0"
 #### if size start manually not via init script  - "sh -e /etc/init.d/xvfb start"
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 800x600x32"
   - sleep 3 # give xvfb some time to start
 #install: cmake
 before_script: cmake .
-script: make && test
+script: make && ./test
