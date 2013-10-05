@@ -28,6 +28,5 @@ before_script:
   - cmake .
 script:
   - make
-  - export DISPLAY=:99.0
-  - ./test
+  - "DISPLAY=:99.0 ./test"
   - find . -iname *.a
