@@ -17,6 +17,7 @@ before_install:
 #install: cmake
 before_script: cmake .
 script:
-  - find . -iname *.a 
+  - find . -iname *.c
+  - find . -iname *.a
   - make && ./test
-  - find . -iname *.a 
+  - find . -iname *.a
