@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 
 include_directories(srcglfw3/include)
+LINK_DIRECTORIES(srcglfw3/src)
 add_subdirectory(srcglfw3)
 set (EXTRA_LIBS ${EXTRA_LIBS} glfw3)
 
