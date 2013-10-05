@@ -16,7 +16,7 @@ before_install:
   - cmake .
   - make
   - cd ..
-  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_963.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :963 -ac -screen 0 800x600x32"
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_963.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :963 -ac -screen 0 800x600x16"
   - sleep 3 # give xvfb some time to start
 #install: cmake
 before_script:
