@@ -47,7 +47,7 @@ script:
   - "export DISPLAY=:963.0"
   - "DISPLAY=:963.0 ./test"
   - find . -iname *.a
-  - mkdir img_out
+  - mkdir -p img_out
   - imagediff -d img_orig/1_normal_a.jpg img_new/1_normal_b.jpg img_out/salida.jpg
   - imagediff -e img_orig/1_normal_a.jpg img_new/1_normal_b.jpg
   - python mirror/mirror.py img_orig/1_normal_a.jpg img_new/1_normal_b.jpg 
