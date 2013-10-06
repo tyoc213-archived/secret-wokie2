@@ -13,10 +13,13 @@ before_install:
   # installing requeriments PIL with jpeg support failed replace it with pillow... perhaps this also can work http://stackoverflow.com/a/14840374/682603 it is pillow? https://github.com/python-imaging/Pillow or something on the lines of http://askubuntu.com/questions/156484/how-do-i-install-python-imaging-library-pil?answertab=votes#tab-top
   # - sudo pip install pillow
   #- for pillow https://github.com/python-imaging/Pillow#linux lets see if PIL too travis Ubuntu 12.04 
-  - sudo apt-get install libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev
-  - cd mirror
-  - sudo pip install -r requirements.txt
-  - cd ..
+  #- sudo apt-get install libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev
+  # from http://jj.isgeek.net/2011/09/install-pil-with-jpeg-support-on-ubuntu-oneiric-64bits/
+  - sudo apt-get install libjpeg libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev
+  - sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib
+  - sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib
+  - sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib
+  - pip install PIL
 # NOTE: In OSX use export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig after install the others via brew
   # - sudo apt-get install libcairo2-dev fontconfig
   - npm install -g imagediff
