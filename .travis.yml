@@ -15,7 +15,7 @@ before_install:
   #- for pillow https://github.com/python-imaging/Pillow#linux lets see if PIL too travis Ubuntu 12.04 
   #- sudo apt-get install libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev
   # from http://jj.isgeek.net/2011/09/install-pil-with-jpeg-support-on-ubuntu-oneiric-64bits/
-  - sudo apt-get install libjpeg libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev
+  - sudo apt-get install libjpeg8 libjpeg8-dev libfreetype6 libfreetype6-dev zlib1g-dev
   - sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib
   - sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib
   - sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib
